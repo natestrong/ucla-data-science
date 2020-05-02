@@ -1,0 +1,79 @@
+#Two types of libraries
+
+
+#### For Python
+
+#Pre-installed...
+#https://docs.python.org/3/library/
+
+#More libraries to install..
+#https://pypi.org/
+#Use a search engine, check communities, discussion boards, pypi
+
+# Step 1: Checking what you have
+
+### How do I know a package isn't available in my enviornment?
+#a). Path #1 - see what libraries you do have
+help("modules")
+
+#b). Path #2 (my prefered way)
+#import and see if it fails/works!
+import plotly
+
+# Step 2: Installing
+
+#In conda
+#Search conda
+https://anaconda.org/anaconda/plotly
+
+#Run on command line (Mac terminal or Windows shell)
+#Installing
+conda install -c anaconda plotly
+
+# Step 3: Loading
+#for entire workspace
+import plotly
+
+#or for specific modules
+from plotly import tools
+
+
+
+
+
+
+#### For R
+
+#Pre-installed...
+#https://stat.ethz.ch/R-manual/R-devel/doc/html/packages.html
+
+#More libraries to install..
+#https://www.r-pkg.org
+#Use a search engine, check communities, discussion boards, r-pkg
+
+# Step 1: Checking what you have
+
+### How do I know a package isn't available in my enviornment?
+#a). Path #1 - see what libraries you do have
+sessionInfo()
+installed.packages()[,c(1,3:4)]
+#"recommended" come with R, "base" come with R and are pre-loaded (i.e. library("tools") is not necessary)
+
+#b). Path #2 (my prefered way)
+#import and see if it fails/works!
+library("corrplot")
+
+# Step 2: Installing
+
+#Search for library name
+https://www.r-pkg.org
+
+#can run in RStudio, commandline (Mac terminal or Windows shell)
+install.packages("corrplot")
+
+# Step 3: Loading
+
+#for entire workspace
+library("corrplot")
+
+

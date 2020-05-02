@@ -1,0 +1,16 @@
+
+~python:S117"bRename this local variable "someOtherVariable" to match the regular expression ^[_a-z][a-z0-9_]*$.(¾˜íÿÿÿÿÿ
+mpython:S1542"URename function "someFunction" to match the regular expression ^[a-z_][a-z0-9_]{2,}$.(¯âŸ
+spython:S1542("VRename function "someOtherFunc" to match the regular expression ^[a-z_][a-z0-9_]{2,}$.(“¹óÌşÿÿÿÿ
+ppython:S117,"YRename this parameter "someOtherFunc" to match the regular expression ^[_a-z][a-z0-9_]*$.(«óÕÄ
+ipython:S1542,"QRename function "someFunc" to match the regular expression ^[a-z_][a-z0-9_]{2,}$.(«óÕÄ
+mpython:S1542M"URename function "someFunction" to match the regular expression ^[a-z_][a-z0-9_]{2,}$.(¯âŸ
+mpython:S1542S"URename function "someFunction" to match the regular expression ^[a-z_][a-z0-9_]{2,}$.(¼Ê™ù
+mpython:S1542Y"URename function "someFunction" to match the regular expression ^[a-z_][a-z0-9_]{2,}$.(¼Ê™ù
+rpython:S1542a"URename function "someFunction" to match the regular expression ^[a-z_][a-z0-9_]{2,}$.(ô ˜ûÿÿÿÿ
+mpython:S1542p"URename function "someFunction" to match the regular expression ^[a-z_][a-z0-9_]{2,}$.(¯âŸ
+mpython:S1542~"URename function "someFunction" to match the regular expression ^[a-z_][a-z0-9_]{2,}$.(¯âŸ
+npython:S1542Š"URename function "someFunction" to match the regular expression ^[a-z_][a-z0-9_]{2,}$.(¯âŸ
+kpython:S101¤"NRename class "someClass" to match the regular expression ^[A-Z_][a-zA-Z0-9]+$.(«ÄÿÖıÿÿÿÿ
+npython:S117¨"VRename this parameter "someString" to match the regular expression ^[_a-z][a-z0-9_]*$.(§·éâ
+npython:S1542¬"URename function "someFunction" to match the regular expression ^[a-z_][a-z0-9_]{2,}$.(¯âŸ
