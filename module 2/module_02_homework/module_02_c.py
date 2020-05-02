@@ -6,10 +6,13 @@ Assignment:  Write a Python and R Program - part c
 Author:      Nathan Strong
 Date:        April 25, 2020
 """
-
+from collections import defaultdict
 from typing import List, Tuple
 
 if __name__ == '__main__':
+    """
+    Part A.
+    """
     someVar = 1
     someOtherVar = "one"
 
@@ -23,8 +26,12 @@ if __name__ == '__main__':
     someVar, someOtherVar = [str(x) for x in (someVar, someOtherVar)]
     print(someVar + someOtherVar)
 
+    """
+    Part B.
+    Separate list into list of types
+    """
     # List of integers and strings
-    someList: int or str = [3, 'S', 'B', 21]
+    someList = [3, 'S', 'B', 21, 50.1]
 
     # Split into separate lists
     listOfStrings: List[str] = []
@@ -37,9 +44,17 @@ if __name__ == '__main__':
     print('Strings: ' + ', '.join(listOfStrings))
     print('Integers: ' + ', '.join([str(x) for x in listOfIntegers]))
 
+    # Alternative - better way
+    # Loop through the list and for each type, add it to a dictionary
+    dictionaryOfTypes = defaultdict(list)
+    for item in someList:
+        dictionaryOfTypes[type(item).__name__].append(item)
+    print('Dictionary of types with the values for each type as a list:')
+    [print(_type, _list) for _type, _list in dictionaryOfTypes.items()]
+
     """
+    Part C.
     Compare and contrast Python Data Structures
-    Python Type Hints Cheat Sheet: https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html
     """
     #  1. List - An ordered collection.
     myList: List[int] = list()
@@ -57,5 +72,11 @@ if __name__ == '__main__':
 
     # 2. Tuple - Similar to lists, but are immutable (can't be modified)
     # Have less magic functions, but also take up less memory
-    myTuple: Tuple[str, ...] = '1', 'hello', 'cool'
+    myTuple: Tuple[str, str, int] = ('1', 'hello', 5)
 
+    # Convenient way to return multiple values from a function
+    def find_odd(numbers: List[int]) -> (List, int):
+        odd_numbers = [_number for _number in numbers if (_number % 2) != 0]
+        return odd_numbers, len(odd_numbers)
+    oddNumbers, oddNumberCount = find_odd([1, 2, 3, 4, 5, 6, 7])
+    print(f'There are {oddNumberCount} odd numbers: {oddNumbers}')
