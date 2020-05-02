@@ -6,6 +6,7 @@ Assignment:  Write a Python and R Program - part c
 Author:      Nathan Strong
 Date:        April 25, 2020
 """
+import sys
 from collections import defaultdict, Counter
 from typing import List, Tuple
 
@@ -113,8 +114,31 @@ if __name__ == '__main__':
     mostCommon, mostCommonCount = myCounter.most_common(1)[0]
     print(f'myCounter has the value {mostCommon} the most at {mostCommonCount} times')
 
+    # Matplotlib - A Python library which has to be imported into virtual environment
+    def testMatplotlib():
+        from matplotlib import pyplot as plt
+        players: List[str] = ['Messi', 'Mbappe', 'Salah', 'Lewandowski', 'Mane']
+        goals: List[int] = [36, 33, 22, 22, 22]
+
+        # Create a bar chart, player on x axis, goals on y-axis
+        plt.bar(players, goals)
+        plt.title('Goals scored in 2019')
+        plt.show()
+
+    if 'matplotlib' in sys.modules:
+        testMatplotlib()
+
     """
     Part E.
     Write a function that separates out the negative and positive integers in a list.
     """
     listWithPositiveAndNegative = range(-15, 15, 3)
+    negativeNumbers: List[int] = []
+    positiveNumbers: List[int] = []
+    for value in listWithPositiveAndNegative:
+        if value < 0:
+            negativeNumbers.append(value)
+        elif value > 0:
+            positiveNumbers.append(value)
+
+    print(f'negative: {negativeNumbers}\npositive: {positiveNumbers}')
