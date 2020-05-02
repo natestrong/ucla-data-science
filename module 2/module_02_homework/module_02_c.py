@@ -6,7 +6,7 @@ Assignment:  Write a Python and R Program - part c
 Author:      Nathan Strong
 Date:        April 25, 2020
 """
-from collections import defaultdict
+from collections import defaultdict, Counter
 from typing import List, Tuple
 
 if __name__ == '__main__':
@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
     """
     Part B.
-    Separate list into list of types
+    Separate list into list of types.
     """
     # List of integers and strings
     someList = [3, 'S', 'B', 21, 50.1]
@@ -54,7 +54,7 @@ if __name__ == '__main__':
 
     """
     Part C.
-    Compare and contrast Python Data Structures
+    Compare and contrast Python Data Structures.
     """
     #  1. List - An ordered collection.
     myList: List[int] = list()
@@ -80,3 +80,41 @@ if __name__ == '__main__':
         return odd_numbers, len(odd_numbers)
     oddNumbers, oddNumberCount = find_odd([1, 2, 3, 4, 5, 6, 7])
     print(f'There are {oddNumberCount} odd numbers: {oddNumbers}')
+
+    # 3. Dictionary - A collection of key, value pairs. (Generally) unordered.
+    myDictionary = {'Nathan': 100, 'Jacob': 500, 'Billy': 1000}
+    if 'Nathan' in myDictionary:
+        print(f'Nathan has value {myDictionary["Nathan"]}')
+    # You can also set a default return value if they key is not found using .get()
+    kassandraValue = myDictionary.get('Kassandra', 0)
+    print(f'Kassandra has a value of {kassandraValue}')
+
+    # 4. Set - Represents a collection of distinct elements
+    mySet = set()
+    mySet.add(1)       # s is now {1}
+    mySet.add(2)       # s is now {1, 2}
+    mySet.add(2)       # s is still {1, 2}
+
+    """
+    Part D.
+    Specialized datatypes are not automatically imported and contain more specific functionality.
+    """
+    # defaultdict - subclass of dict, fills in missing values with a default value
+    def missing_value():
+        return 'missing value'
+    myDefaultdict = defaultdict(missing_value)
+    myDefaultdict['Maxwell'] = 'cat'
+    print(myDefaultdict['Maxwell'])
+    print(myDefaultdict['Sophie'])
+
+    # Counter - turns a sequence of values into a mapping of keys to counts
+    someNumbers = 0, 2, 4, 2, 8, 5, 0, 2, 4, 0
+    myCounter = Counter(someNumbers)
+    mostCommon, mostCommonCount = myCounter.most_common(1)[0]
+    print(f'myCounter has the value {mostCommon} the most at {mostCommonCount} times')
+
+    """
+    Part E.
+    Write a function that separates out the negative and positive integers in a list.
+    """
+    listWithPositiveAndNegative = range(-15, 15, 3)
