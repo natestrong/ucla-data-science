@@ -19,8 +19,8 @@ if __name__ == '__main__':
         print(e)
         print('When concatenating a string, an int type is not supported')
 
-    # Use generator comprehension to convert both variables to str
-    someVar, someOtherVar = (str(x) for x in (someVar, someOtherVar))
+    # Use list comprehension to convert both variables to str
+    someVar, someOtherVar = [str(x) for x in (someVar, someOtherVar)]
     print(someVar + someOtherVar)
 
     # List of integers and strings
@@ -39,6 +39,7 @@ if __name__ == '__main__':
 
     """
     Compare and contrast Python Data Structures
+    Python Type Hints Cheat Sheet: https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html
     """
     #  1. List - An ordered collection.
     myList: List[int] = list()
@@ -56,5 +57,5 @@ if __name__ == '__main__':
 
     # 2. Tuple - Similar to lists, but are immutable (can't be modified)
     # Have less magic functions, but also take up less memory
-    myTuple: (str) = '1', 'hello', 'cool'
+    myTuple: Tuple[str, ...] = '1', 'hello', 'cool'
 
