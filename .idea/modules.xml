@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/UCLA Data Science.iml" filepath="$PROJECT_DIR$/.idea/UCLA Data Science.iml" />
+      <module fileurl="file://$PROJECT_DIR$/r-homework/r-homework.iml" filepath="$PROJECT_DIR$/r-homework/r-homework.iml" />
     </modules>
   </component>
 </project>
