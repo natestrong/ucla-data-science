@@ -27,7 +27,7 @@ class MyStreamer(TwythonStreamer):
         if len(self.tweets) >= 100:
             self.disconnect()
 
-    def on_error(self, status_code, data):
+    def on_error(self, status_code, data, headers=None):
         print(status_code, data)
 
 
