@@ -7,10 +7,10 @@ from typing import List
 @dataclass
 class Tweet:
     text: str
-    hashtags: List[str]
     date: datetime
     user_handle: str
     user_description: str
+    hashtags: List[str]
 
     def __init__(self, data_from_twython):
         self.text = data_from_twython.get('text')
@@ -18,6 +18,7 @@ class Tweet:
         self.user_description = data_from_twython.get('user', {}).get('description')
 
         _hashtags = data_from_twython.get('hashtags', [])
+        self.hashtags = []
         for h in _hashtags:
             self.hashtags.append(h.get('text'))
 
