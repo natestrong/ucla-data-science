@@ -2,14 +2,14 @@
 <module type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Python" name="Python">
-      <configuration sdkName="Python 3.7 (ucla_data_science)" />
+      <configuration sdkName="Python 3.8 (python_3_8)" />
     </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.8 (python_3_8)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Python 3.7 (ucla_data_science) interpreter library" level="application" />
+    <orderEntry type="library" name="Python 3.8 (python_3_8) interpreter library" level="application" />
   </component>
 </module>
