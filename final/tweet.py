@@ -6,13 +6,16 @@ from typing import List
 
 @dataclass
 class Tweet:
+    id_str: str
     text: str
     date: datetime
     user_handle: str
     user_description: str
     hashtags: List[str]
+    language: str
 
     def __init__(self, data_from_twython):
+        self.id_str = data_from_twython.get('id_str')
         self.text = data_from_twython.get('text')
         self.user_handle = data_from_twython.get('user', {}).get('screen_name')
         self.user_description = data_from_twython.get('user', {}).get('description')
