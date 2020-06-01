@@ -1,38 +1,37 @@
 import datetime
 import os
+from collections import defaultdict
+from typing import List, DefaultDict
 
 import firebase_admin
 from firebase_admin import credentials, firestore
 
+# from final.tweet import Tweet
 # from final.tweet import Tweet
 
 
 def get_db():
     firebase_json = f'{os.path.expanduser("~")}/credentials/firebase_auth.json'
     cred = credentials.Certificate(firebase_json)
-    if len(firebase_admin._apps):
-        return firebase_admin._apps['DEFAULT']
-    default_app = firebase_admin.initialize_app(cred)
+    c = firebase_admin
+    if not firebase_admin._apps:
+        default_app = firebase_admin.initialize_app(cred)
     return firestore.client()
 
 
 if __name__ == '__main__':
     db = get_db()
-    db2 = get_db()
-    print('c')
-    # tweet = Tweet({
-    #     'id_str': 'abc123',
-    #     'text': 'this my tweet',
-    #     'user': {
-    #         'screen_name': 'clark',
-    #         'description': 'the coolest'
-    #     },
-    #     'hashtags': [
-    #         {'text': 'lol'},
-    #         {'text': 'iCanCount'},
-    #     ],
-    #     'created_at': 'January 6, 1991',
-    #     'language': 'Python'
-    # })
-    document = db.collection('tweets').document('test')
+    # tweets_dict: DefaultDict[str, List[Tweet]] = defaultdict(list)
+    # tweets_collection = db.collection('tweets').stream()
+    # for doc in tweets_collection:
+    #     _tweet = Tweet(None, doc.to_dict())
+    #     tweets_dict[doc.get('language')].append(_tweet)
+
+    test_collection = tweets_collection = db.collection('test')
+    batch = db.batch()
+    for x in range(1, 502):
+        _document = {'name': x, 'squared': x * x}
+        batch.set(test_collection.document(str(_document['name'])), _document)
+        print('c')
+    batch.commit()
     print('c')

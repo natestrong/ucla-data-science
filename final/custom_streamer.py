@@ -3,8 +3,8 @@ from typing import List
 
 from twython import TwythonStreamer
 
-from final.register_twitter import RegisterTwitter
-from final.tweet import Tweet
+from register_twitter import RegisterTwitter
+from tweet import Tweet
 
 
 class CustomStreamer(TwythonStreamer):
@@ -19,21 +19,16 @@ class CustomStreamer(TwythonStreamer):
     def on_success(self, data):
         if datetime.now() >= self.end_time:
             return self.disconnect()
-        print(data['text'])
-        print('__________________________________________')
-        self.tweets.append(Tweet(data))
+        if data.get('lang', 'en') == 'en':
+            self.tweets.append(Tweet(data))
 
     def on_error(self, status_code, data, headers=None):
         print(status_code, data)
-        self.connected = False
+        self.disconnect()
 
 
-if __name__ == '__main__':
-    tweet_dict = {}
-    for language in ('Rust', 'Python', 'WebAssembly'):
-        print(f'~~~~ {language} ~~~~')
-        twitterStreamer = CustomStreamer(minutes_to_listen=0, seconds_to_listen=30)
-        twitterStreamer.statuses.filter(track=language)
-        print(twitterStreamer.statuses.filter)
-        tweet_dict[language] = twitterStreamer.tweets
-    print('done')
+# if __name__ == '__main__':
+#     tweet_dict = {}
+#     languages = ('Rust', 'Python', 'WebAssembly')
+#     twitterStreamer = CustomStreamer()
+#     twitterStreamer.statuses.filter(track=','.join(languages))
